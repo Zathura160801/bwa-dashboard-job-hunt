@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Epilogue } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/layouts/Sidebar";
+import Header from "@/components/layouts/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const epilogue = Epilogue({
   subsets: ["latin"],
 });
 
@@ -25,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={epilogue.className}>
         <main>
           <div className="border-t">
             <div className="bg-background">
@@ -37,7 +30,9 @@ export default function RootLayout({
                 </div>
                 <div className="col-span-3 overflow-auto lg:col-span-5 lg:border-l w-[82%]">
                   <div className="px-6 py-6 lg:px-8">
-                    <div>Header</div>
+                    <div>
+                      <Header />
+                    </div>
                     {children}
                   </div>
                 </div>
